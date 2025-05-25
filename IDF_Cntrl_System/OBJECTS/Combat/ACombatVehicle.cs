@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IDF_Cntrl_System.OBJECTS.Person;
 using IDF_Cntrl_System.OBJECTS.Weapons;
 
 namespace IDF_Cntrl_System.OBJECTS.Combat
@@ -32,6 +33,6 @@ namespace IDF_Cntrl_System.OBJECTS.Combat
         }
         public abstract void Refuel();
         public abstract void UpdateFuel();
-        public abstract void Attack();
+        public abstract void Attack(Terrorist terrorist);
     }
 }
