@@ -12,7 +12,7 @@ namespace IDF_Cntrl_System.OBJECTS.Combat
     {
         protected CombatType CombatType { get; }
         protected Dictionary<WeaponTypes, AmmoCapacity> SelfWeapons { get; }
-        protected List<string> EfficientVS { get; }
+        protected List<EfficientVs> EfficientVS { get; }
         protected string ActivatedBy { get; }
         protected int FuelRemain { get; set; }
         protected int  AttacksRemain { get; }
@@ -20,7 +20,7 @@ namespace IDF_Cntrl_System.OBJECTS.Combat
 
 
         protected ACombatVehicle(CombatType CombatType, Dictionary<WeaponTypes, AmmoCapacity> SelfWeapons,
-            List<string> efficientVS, string activatedBy, int attacksRemain, int maxAttacks, int fuelRemain = 100)
+            List<EfficientVs> efficientVS, string activatedBy, int attacksRemain, int maxAttacks, int fuelRemain = 100)
         {
             this.CombatType = CombatType;
             this.SelfWeapons = SelfWeapons;
