@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 using IDF_Cntrl_System.OBJECTS.Unit;
 using IDF_Cntrl_System.OBJECTS.Person;
 
+
 namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
 {
     internal class AMMAN : AUnit
     {
-        public AMMAN(string name, int id, string type, Soldier commander, int missionID, List<Soldier> soldiers, List<Weapon> Weapons) : base(name, id, type, commander, missionID, soldiers, Weapons){ }
+        public AMMAN(string name, int id, string type, Soldier commander, int missionID, List<Soldier> soldiers, List<AWeapon> Weapons) : base(name, id, type, commander, missionID, soldiers, Weapons){ }
 
         public override void AddSoldier(Soldier soldier)
         {
@@ -35,7 +36,7 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
             }
         }
 
-        public override void AddWeapon(Weapon weapon)
+        public override void AddWeapon(AWeapon weapon)
         {
             if (!this.Weapons.Contains(weapon))
             {
@@ -46,7 +47,7 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
                 Console.WriteLine($"{weapon.Name} is already added");
             }
         }
-        public override void RemoveWeapon(Weapon weapon)
+        public override void RemoveWeapon(AWeapon weapon)
         {
             if (this.Weapons.Contains(weapon))
             {

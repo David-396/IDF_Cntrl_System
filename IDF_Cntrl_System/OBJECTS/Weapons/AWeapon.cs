@@ -25,5 +25,7 @@ namespace IDF_Cntrl_System.OBJECTS.Weapons
         }
 
         public abstract void UpdateAmmo(int ammoUsed);
+        public abstract void Reammo();
+
     }
 }
