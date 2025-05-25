@@ -56,6 +56,7 @@
     <Compile Include="OBJECTS\Person\Soldier.cs" />
     <Compile Include="OBJECTS\Person\Terrorist.cs" />
     <Compile Include="OBJECTS\Unit\AUnit.cs" />
+    <Compile Include="OBJECTS\Weapons\AmmoCapacity.cs" />
     <Compile Include="OBJECTS\Weapons\AWeapon.cs" />
     <Compile Include="OBJECTS\Weapons\WeaponTypes.cs" />
     <Compile Include="Program.cs" />

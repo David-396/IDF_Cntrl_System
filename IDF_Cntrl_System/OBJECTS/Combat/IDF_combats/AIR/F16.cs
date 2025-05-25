@@ -10,15 +10,16 @@ namespace IDF_Cntrl_System.OBJECTS.Combat.IDF_combats.AIR
 {
     internal class F16 : ACombatVehicle
     {
-        public F16(CombatType CombatType, List<WeaponTypes> SelfWeapons, List<string> bombType, List<string> efficientVS, string activatedBy, int attacksRemain, int maxAttacks, int fuelRemain = 100)
-            : base(CombatType.AirCraft, SelfWeapons, bombType, efficientVS, activatedBy, attacksRemain, maxAttacks, fuelRemain) { }
+        public F16(CombatType CombatType, Dictionary<WeaponTypes, AmmoCapacity> SelfWeapons, 
+            List<string> efficientVS, string activatedBy, int attacksRemain, int maxAttacks, int fuelRemain = 100)
+            : base(CombatType.AirCraft, SelfWeapons, efficientVS, activatedBy, attacksRemain, maxAttacks, fuelRemain) { }
 
         public override void Refuel()
         {
             this.FuelRemain = 100;
         }
 
-        public override void UpdateFuel()
+        public override void UpdateFuelAfterAttack()
         {
             this.FuelRemain -= 10;
         }
