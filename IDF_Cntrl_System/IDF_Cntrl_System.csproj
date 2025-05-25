@@ -46,6 +46,12 @@
     <Compile Include="OBJECTS\ArmyOrganizations\ArmyOrganization.cs" />
     <Compile Include="OBJECTS\ArmyOrganizations\HAMMASobj\HAMMAS.cs" />
     <Compile Include="OBJECTS\ArmyOrganizations\IDFobj\IDF.cs" />
+    <Compile Include="OBJECTS\ArmyOrganizations\IDFobj\Units\Intelligence\AMMAN.cs" />
+    <Compile Include="OBJECTS\Combat\ACombatVehicle.cs" />
+    <Compile Include="OBJECTS\Combat\CombatTypes.cs" />
+    <Compile Include="OBJECTS\Combat\IDF_combats\AIR\F16.cs" />
+    <Compile Include="OBJECTS\Combat\IDF_combats\AIR\Hermes460.cs" />
+    <Compile Include="OBJECTS\Combat\IDF_combats\GROUND\M109.cs" />
     <Compile Include="OBJECTS\Person\APerson.cs" />
     <Compile Include="OBJECTS\Person\Soldier.cs" />
     <Compile Include="OBJECTS\Person\Terrorist.cs" />
@@ -57,7 +63,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="OBJECTS\ArmyOrganizations\HAMMASobj\Units\" />
+    <Folder Include="OBJECTS\ArmyOrganizations\IDFobj\Units\Strike\" />
+    <Folder Include="OBJECTS\Combat\IDF_combats\SEA\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

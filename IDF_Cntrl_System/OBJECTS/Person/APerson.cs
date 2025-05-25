@@ -8,8 +8,8 @@ namespace IDF_Cntrl_System.OBJECTS.Person
 {
     internal abstract class APerson
     {
-        protected string Name;
-        protected int Age;
+        public string Name { get; }
+        protected int Age { get; }
 
         public APerson(string Name, int Age)
         {
@@ -17,13 +17,13 @@ namespace IDF_Cntrl_System.OBJECTS.Person
             this.Age = Age;
         }
 
-        public string GetName()
-        {
-            return this.Name;
-        }
-        public int GetAge()
-        {
-            return this.Age;
-        }
+        //public string GetName()
+        //{
+        //    return this.Name;
+        //}
+        //public int GetAge()
+        //{
+        //    return this.Age;
+        //}
     }
 }

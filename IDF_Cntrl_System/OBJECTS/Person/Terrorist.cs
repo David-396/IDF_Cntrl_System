@@ -10,10 +10,10 @@ namespace IDF_Cntrl_System.OBJECTS.Person
 {
     internal class Terrorist : Soldier
     {
-        protected int DangerRank;
-        protected Tuple<int> Location;
-        protected int SeniorRank;
-        protected bool Status;
+        protected int DangerRank { get; }
+        protected Tuple<int> Location {  get; }
+        protected int SeniorRank {  get; }
+        protected bool Status {  get; }
 
         public Terrorist(string name, int age, AUnit unit, string role, int iD, Weapon weapon, int DangerRank, Tuple<int> Location, int SeniorRank, bool Status)
             : base(name, age, unit, role, iD, weapon)
@@ -24,21 +24,21 @@ namespace IDF_Cntrl_System.OBJECTS.Person
             this.Status = Status;
         }
 
-        public int GetDangerRank()
-        {
-            return this.DangerRank;
-        }
-        public Tuple<int> GetLocation()
-        {
-            return this.Location;
-        }
-        public int GetSeniorRank()
-        {
-            return this.SeniorRank;
-        }
-        public bool GetStatus()
-        {
-            return this.Status;
-        }
+        //public int GetDangerRank()
+        //{
+        //    return this.DangerRank;
+        //}
+        //public Tuple<int> GetLocation()
+        //{
+        //    return this.Location;
+        //}
+        //public int GetSeniorRank()
+        //{
+        //    return this.SeniorRank;
+        //}
+        //public bool GetStatus()
+        //{
+        //    return this.Status;
+        //}
     }
 }

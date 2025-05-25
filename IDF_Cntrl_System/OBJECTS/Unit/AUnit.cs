@@ -10,13 +10,13 @@ namespace IDF_Cntrl_System.OBJECTS.Unit
 {
     internal abstract class AUnit
     {
-        protected string Name;
-        protected int ID;
-        protected string Type;
-        protected Soldier Commander;
-        protected int MissionID;
-        protected List<Soldier> Soldiers;
-        protected List<Weapon> Weapons;
+        protected string Name { get; }
+        protected int ID { get; }
+        protected string Type { get; }
+        protected Soldier Commander { get; }
+        protected int MissionID { get; }
+        protected List<Soldier> Soldiers { get; }
+        protected List<Weapon> Weapons { get; }
 
         public AUnit(string name, int id, string type, Soldier commander, int missionID, List<Soldier> soldiers, List<Weapon> Weapons)
         {
@@ -29,36 +29,11 @@ namespace IDF_Cntrl_System.OBJECTS.Unit
             this.Weapons = Weapons;
         }
 
-        public string GetName()
-        {
-            return this.Name;
-        }
-        public int GetID()
-        {
-            return this.ID;
-        }
-        public string GetType()
-        {
-            return this.Type;
-        }
-        public Soldier GetCommander()
-        {
-            return this.Commander;
-        }
-        public int GetMissionID()
-        {
-            return this.MissionID;
-        }
-        public List<Soldier> GetSoldiers()
-        {
-            return this.Soldiers;
-        }
-        public List<Weapon> GetWeapons()
-        {
-            return this.Weapons;
-        }
 
-        public abstract bool AddSoldier(Soldier soldier);
-        public abstract bool  RemoveSoldier(Soldier soldier);
+        public abstract void AddSoldier(Soldier soldier);
+        public abstract void  RemoveSoldier(Soldier soldier);
+
+        public abstract void AddWeapon(Weapon weapon);
+        public abstract void RemoveWeapon(Weapon weapon);
     }
 }

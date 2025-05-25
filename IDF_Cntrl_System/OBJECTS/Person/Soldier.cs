@@ -10,10 +10,10 @@ namespace IDF_Cntrl_System.OBJECTS.Person
 {
     internal class Soldier : APerson
     {
-        protected AUnit Unit;
-        protected string Role;
-        protected int ID;
-        protected Weapon Weapon;
+        protected AUnit Unit { get; }
+        protected string Role { get; }
+        protected int ID {  get; }
+        protected Weapon Weapon {  get; }
 
         public Soldier(string name, int age, AUnit unit, string role, int iD, Weapon weapon) : base(name, age)
         {
@@ -23,21 +23,21 @@ namespace IDF_Cntrl_System.OBJECTS.Person
             this.Weapon = weapon;
         }
 
-        public AUnit GetUnit()
-        {
-            return this.Unit;
-        }
-        public string GetRole()
-        {
-            return this.Role;
-        }
-        public int GetID()
-        {
-            return this.ID;
-        }
-        public Weapon GetWeapon()
-        {
-            return this.weapon;
-        }
+        //public AUnit GetUnit()
+        //{
+        //    return this.Unit;
+        //}
+        //public string GetRole()
+        //{
+        //    return this.Role;
+        //}
+        //public int GetID()
+        //{
+        //    return this.ID;
+        //}
+        //public Weapon GetWeapon()
+        //{
+        //    return this.weapon;
+        //}
     }
 }
