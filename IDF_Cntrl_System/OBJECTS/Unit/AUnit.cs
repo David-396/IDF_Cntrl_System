@@ -12,7 +12,7 @@ namespace IDF_Cntrl_System.OBJECTS.Unit
 {
     internal abstract class AUnit
     {
-        protected string Name { get; }
+        protected enum_UnitName Name { get; }
         protected int ID { get; }
         protected string Type { get; }
         protected Soldier Commander { get; }
@@ -20,7 +20,7 @@ namespace IDF_Cntrl_System.OBJECTS.Unit
         protected List<Soldier> Soldiers { get; }
         protected Dictionary<ACombatVehicle, List<AWeapon>> Weapons { get; }
 
-        public AUnit(string name, int id, string type, Soldier commander, int missionID, List<Soldier> soldiers, Dictionary<ACombatVehicle, List<AWeapon>> Weapons)
+        public AUnit(enum_UnitName name, int id, string type, Soldier commander, int missionID, List<Soldier> soldiers, Dictionary<ACombatVehicle, List<AWeapon>> Weapons)
         {
             this.Name = name;
             this.ID = id;
