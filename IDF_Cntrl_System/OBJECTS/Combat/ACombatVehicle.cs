@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace IDF_Cntrl_System.OBJECTS.Combat
+{
+    internal abstract class ACombatVehicle
+    {
+        protected CombatType CombatType { get; }
+        protected List<string> BombType { get; }
+        protected List<string> EfficientVS { get; }
+        protected string ActivatedBy { get; }
+        protected int FuelRemain { get; }
+        protected int  AttacksRemain { get; }
+        protected int  MaxAttacks { get; }
+
+
+        protected ACombatVehicle(CombatType CombatType, List<string> bombType, List<string> efficientVS, string activatedBy, int attacksRemain, int maxAttacks, int fuelRemain = 100)
+        {
+            this.CombatType = CombatType;
+            this.BombType = bombType;
+            this.EfficientVS = efficientVS;
+            this.ActivatedBy = activatedBy;
+            this.FuelRemain = fuelRemain;
+            this.AttacksRemain = attacksRemain;
+            this.MaxAttacks = maxAttacks;
+        }
+
+
+    }
+}
