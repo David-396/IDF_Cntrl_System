@@ -5,13 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using IDF_Cntrl_System.OBJECTS.Unit;
 using IDF_Cntrl_System.OBJECTS.Person;
+using IDF_Cntrl_System.OBJECTS.Weapons;
+using IDF_Cntrl_System.OBJECTS.Combat;
 
 
 namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
 {
     internal class AMMAN : AUnit
     {
-        public AMMAN(string name, int id, string type, Soldier commander, int missionID, List<Soldier> soldiers, List<AWeapon> Weapons) : base(name, id, type, commander, missionID, soldiers, Weapons){ }
+        public AMMAN(string name, int id, string type, Soldier commander, int missionID, List<Soldier> soldiers, Dictionary<ACombatVehicle, List<AWeapon>> Weapons)
+            : base(name, id, type, commander, missionID, soldiers, Weapons){ }
 
         public override void AddSoldier(Soldier soldier)
         {
@@ -29,6 +32,7 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
             if (this.Soldiers.Contains(soldier))
             {
                 this.Soldiers.Remove(soldier);
+
             }
             else
             {
@@ -36,27 +40,57 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
             }
         }
 
-        public override void AddWeapon(AWeapon weapon)
+        public override void AddWeapon(Dictionary<ACombatVehicle, List<AWeapon>> weapon_dict)
         {
-            if (!this.Weapons.Contains(weapon))
+            foreach (ACombatVehicle key in weapon_dict.Keys)
             {
-                this.Weapons.Add(weapon);
-            }
-            else
-            {
-                Console.WriteLine($"{weapon.Name} is already added");
+                if (this.Weapons.ContainsKey(key))
+                {
+                    foreach (AWeapon val in weapon_dict[key])
+                    {
+                        if (!this.Weapons[key].Contains(val))
+                        {
+                            this.Weapons[key].Add(val);
+                        }
+                    }
+                }
+                else
+                {
+                    this.Weapons[key] = weapon_dict[key];
+                }
             }
         }
-        public override void RemoveWeapon(AWeapon weapon)
+        public override void RemoveWeapon(Dictionary<ACombatVehicle, List<AWeapon>> weapon_dict, bool RemoveKey = false)
         {
-            if (this.Weapons.Contains(weapon))
+            foreach (ACombatVehicle key in weapon_dict.Keys)
             {
-                this.Weapons.Remove(weapon);
+                if (this.Weapons.ContainsKey(key))
+                {
+                    if (RemoveKey)
+                    {
+                        this.Weapons.Remove((key));
+                    }
+                    else
+                    {
+                        foreach (AWeapon weapon in weapon_dict[key])
+                        {
+                            foreach(AWeapon orgnl_weapon in this.Weapons[key])
+                            {
+                                if (orgnl_weapon == weapon)
+                                {
+                                    this.Weapons[key].Remove(orgnl_weapon);
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                else
+                {
+                    Console.WriteLine($"{key.GetType()} not in the list");
+                }
             }
-            else
-            {
-                Console.WriteLine($"{weapon.Name} is not in the list");
-            }
+
         }
     }
 }

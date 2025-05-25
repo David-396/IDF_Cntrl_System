@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using IDF_Cntrl_System.OBJECTS.Unit;
+using IDF_Cntrl_System.OBJECTS.Weapons;
 
 namespace IDF_Cntrl_System.OBJECTS.Person
 {
@@ -13,9 +14,9 @@ namespace IDF_Cntrl_System.OBJECTS.Person
         protected int DangerRank { get; }
         protected Tuple<int> Location {  get; }
         protected int SeniorRank {  get; }
-        protected bool Status {  get; }
+        protected bool Status { get; set; }
 
-        public Terrorist(string name, int age, AUnit unit, string role, int iD, Weapon weapon, int DangerRank, Tuple<int> Location, int SeniorRank, bool Status)
+        public Terrorist(string name, int age, AUnit unit, string role, int iD, AWeapon weapon, int DangerRank, Tuple<int> Location, int SeniorRank, bool Status)
             : base(name, age, unit, role, iD, weapon)
         {
             this.DangerRank = DangerRank;
@@ -24,21 +25,9 @@ namespace IDF_Cntrl_System.OBJECTS.Person
             this.Status = Status;
         }
 
-        //public int GetDangerRank()
-        //{
-        //    return this.DangerRank;
-        //}
-        //public Tuple<int> GetLocation()
-        //{
-        //    return this.Location;
-        //}
-        //public int GetSeniorRank()
-        //{
-        //    return this.SeniorRank;
-        //}
-        //public bool GetStatus()
-        //{
-        //    return this.Status;
-        //}
+        public void UpdateStatus()
+        {
+            this.Status = !this.Status;
+        }
     }
 }

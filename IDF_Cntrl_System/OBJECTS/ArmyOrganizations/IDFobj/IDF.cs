@@ -13,47 +13,36 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj
 {
     internal class IDF : ArmyOrganization
     {
-        protected int HumanResource;
-        protected List<AUnit> UnitsLST;
+        protected List<Soldier> SoldiersLst {  get; }
 
-        public IDF(string Establishment, Soldier Commander, List<Soldier> SoldiersLst)
-            : base(Establishment, Commander, SoldiersLst)
+        public IDF(string Establishment, Soldier Commander, int HumanResource, List<AUnit> UnitsLST, List<Soldier> soldiersLst)
+            : base(Establishment, Commander, HumanResource, UnitsLST)
         {
-            this.HumanResource = this.SoldiersLst.Count();
+            SoldiersLst = soldiersLst;
         }
 
-        public int GetHumanResource()
+        public override void UpdateHumanResource()
         {
-            return this.HumanResource;
-        }
-        public List<AUnit> GetUnitsLST()
-        {
-            return this.UnitsLST;
+            this.HumanResource = this.SoldiersLst.Count;
         }
 
-
-        public bool AddUnit(AUnit unit)
+        public void AddUnit(AUnit unit)
         {
             if (this.UnitsLST.Contains(unit))
             {
                 Console.WriteLine($"the unit {unit} is already in the list");
-                return false;
             }
             this.UnitsLST.Add(unit);
             Console.WriteLine($"{unit} added to the list");
-            return true;
         }
-
-        public bool RemoveUnit(AUnit unit)
+        public void RemoveUnit(AUnit unit)
         {
             if (this.UnitsLST.Contains(unit))
             {
                 this.UnitsLST.Remove(unit);
                 Console.WriteLine($"{unit} removed from list");
-                return true;
             }
             Console.WriteLine($"{unit} is not in the list");
-            return false;
         }
     }
 }

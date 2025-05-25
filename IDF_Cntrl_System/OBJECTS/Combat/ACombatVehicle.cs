@@ -14,7 +14,7 @@ namespace IDF_Cntrl_System.OBJECTS.Combat
         protected List<string> BombType { get; }
         protected List<string> EfficientVS { get; }
         protected string ActivatedBy { get; }
-        protected int FuelRemain { get; }
+        protected int FuelRemain { get; set; }
         protected int  AttacksRemain { get; }
         protected int  MaxAttacks { get; }
 
@@ -31,7 +31,7 @@ namespace IDF_Cntrl_System.OBJECTS.Combat
             this.MaxAttacks = maxAttacks;
         }
         public abstract void Refuel();
-        public abstract void UpdateFuel(int fuel=100);
+        public abstract void UpdateFuel();
         public abstract void Attack();
     }
 }

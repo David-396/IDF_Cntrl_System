@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using IDF_Cntrl_System.OBJECTS.Unit;
+using IDF_Cntrl_System.OBJECTS.Weapons;
 
 namespace IDF_Cntrl_System.OBJECTS.Person
 {
@@ -13,31 +14,14 @@ namespace IDF_Cntrl_System.OBJECTS.Person
         protected AUnit Unit { get; }
         protected string Role { get; }
         protected int ID {  get; }
-        protected Weapon Weapon {  get; }
+        protected AWeapon Weapon {  get; }
 
-        public Soldier(string name, int age, AUnit unit, string role, int iD, Weapon weapon) : base(name, age)
+        public Soldier(string name, int age, AUnit unit, string role, int iD, AWeapon weapon) : base(name, age)
         {
             this.Unit = unit;
             this.Role = role;
             this.ID = iD;
             this.Weapon = weapon;
         }
-
-        //public AUnit GetUnit()
-        //{
-        //    return this.Unit;
-        //}
-        //public string GetRole()
-        //{
-        //    return this.Role;
-        //}
-        //public int GetID()
-        //{
-        //    return this.ID;
-        //}
-        //public Weapon GetWeapon()
-        //{
-        //    return this.weapon;
-        //}
     }
 }
