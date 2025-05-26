@@ -26,8 +26,7 @@ namespace IDF_Cntrl_System.OBJECTS.Combat.IDF_combats.AIR
 
         public override void Attack(Terrorist terrorist)
         {
-            Console.WriteLine($"{this.CombatType} attacking {terrorist.Name}");
-            terrorist.UpdateStatus();
+            
         }
 
         public void GetBackToBase()
