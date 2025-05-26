@@ -9,7 +9,7 @@ namespace IDF_Cntrl_System.OBJECTS.Person
     internal abstract class APerson
     {
         public string Name { get; }
-        protected int Age { get; }
+        public int Age { get; }
 
         public APerson(string Name, int Age)
         {
