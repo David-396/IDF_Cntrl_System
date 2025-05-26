@@ -34,6 +34,7 @@ namespace IDF_Cntrl_System.OBJECTS.Unit
             this.Available = Available;
         }
 
+        public abstract void print();
 
         public abstract void AddSoldier(Soldier soldier);
         public abstract void  RemoveSoldier(Soldier soldier);

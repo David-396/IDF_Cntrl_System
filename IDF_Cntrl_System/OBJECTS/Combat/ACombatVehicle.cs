@@ -30,6 +30,10 @@ namespace IDF_Cntrl_System.OBJECTS.Combat
         }
         public abstract void Refuel();
         public abstract void UpdateFuelAfterAttack();
-        public abstract void Attack(Terrorist terrorist);
+        public abstract void Attack(Terrorist terrorist)
+        {
+            Console.WriteLine($"{this.CombatType} attacking {terrorist.Name}");
+            terrorist.UpdateStatus();
+        }
     }
 }

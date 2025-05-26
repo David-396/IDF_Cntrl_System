@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Menu\Menu.cs" />
+    <Compile Include="Menu\MenuMannager.cs" />
     <Compile Include="OBJECTS\ArmyOrganizations\ArmyOrganization.cs" />
     <Compile Include="OBJECTS\ArmyOrganizations\HAMMASobj\HAMMAS.cs" />
     <Compile Include="OBJECTS\ArmyOrganizations\IDFobj\IDF.cs" />
@@ -58,7 +60,6 @@
     <Compile Include="OBJECTS\Enums\enum_UnitName.cs" />
     <Compile Include="OBJECTS\Enums\Location_Enum.cs" />
     <Compile Include="OBJECTS\Enums\WeaponTypes.cs" />
-    <Compile Include="OBJECTS\Menu\Menu.cs" />
     <Compile Include="OBJECTS\Person\APerson.cs" />
     <Compile Include="OBJECTS\Person\Soldier.cs" />
     <Compile Include="OBJECTS\Person\Terrorist.cs" />
@@ -71,6 +72,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Menu\Functions\" />
     <Folder Include="OBJECTS\ArmyOrganizations\IDFobj\Units\Strike\" />
     <Folder Include="OBJECTS\Combat\IDF_combats\SEA\" />
   </ItemGroup>

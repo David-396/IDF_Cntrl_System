@@ -14,10 +14,10 @@ using IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence;
 
 namespace IDF_Cntrl_System.Menu
 {
-    public class Makefile
+    static class DB
     {
-        private List<Terrorist> RandomTerrorist { get; set; }
-        private Dictionary<Terrorist, IntelMessege> Messeges { get; set; }
-        
+        static List<Terrorist> RandomTerrorist { get; }
+        static Dictionary<Terrorist, List<IntelMessege>> TerroristMSG { get; }
+        static List<AUnit> UnitsLst { get; }
     }
 }
