@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,14 +12,14 @@ namespace IDF_Cntrl_System.OBJECTS.Combat
     {
         protected CombatType CombatType { get; }
         protected Dictionary<WeaponTypes, AmmoCapacity> SelfWeapons { get; }
-        protected List<string> EfficientVS { get; }
+        protected List<EfficientVs> EfficientVS { get; }
         protected int FuelRemain { get; set; }
         protected int  AttacksRemain { get; }
         protected int  MaxAttacks { get; }
 
 
         protected ACombatVehicle(CombatType CombatType, Dictionary<WeaponTypes, AmmoCapacity> SelfWeapons,
-            List<string> efficientVS, int attacksRemain, int maxAttacks, int fuelRemain = 100)
+            List<EfficientVs> efficientVS, int attacksRemain, int maxAttacks, int fuelRemain = 100)
         {
             this.CombatType = CombatType;
             this.SelfWeapons = SelfWeapons;

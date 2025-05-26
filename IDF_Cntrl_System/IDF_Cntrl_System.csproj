@@ -47,6 +47,7 @@
     <Compile Include="OBJECTS\ArmyOrganizations\HAMMASobj\HAMMAS.cs" />
     <Compile Include="OBJECTS\ArmyOrganizations\IDFobj\IDF.cs" />
     <Compile Include="OBJECTS\ArmyOrganizations\IDFobj\Units\Intelligence\AMMAN.cs" />
+    <Compile Include="OBJECTS\ArmyOrganizations\IDFobj\Units\Intelligence\IntelMessege.cs" />
     <Compile Include="OBJECTS\Combat\ACombatVehicle.cs" />
     <Compile Include="OBJECTS\Combat\CombatTypes.cs" />
     <Compile Include="OBJECTS\Combat\IDF_combats\AIR\F16.cs" />
@@ -55,9 +56,11 @@
     <Compile Include="OBJECTS\Person\APerson.cs" />
     <Compile Include="OBJECTS\Person\Soldier.cs" />
     <Compile Include="OBJECTS\Person\Terrorist.cs" />
+    <Compile Include="OBJECTS\Unit\enum_UnitName.cs" />
     <Compile Include="OBJECTS\Unit\AUnit.cs" />
     <Compile Include="OBJECTS\Weapons\AmmoCapacity.cs" />
     <Compile Include="OBJECTS\Weapons\AWeapon.cs" />
+    <Compile Include="OBJECTS\Weapons\EfficientVs.cs" />
     <Compile Include="OBJECTS\Weapons\WeaponTypes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
