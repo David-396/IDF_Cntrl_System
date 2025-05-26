@@ -2,7 +2,7 @@ using IDF_Cntrl_System.OBJECTS.Person;
 
 namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
 {
-    static class IntelMessege
+    public class IntelMessege
     {
         protected Terrorist terrorist;
         protected int timesamp;
