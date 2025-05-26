@@ -5,7 +5,7 @@ namespace IDF_Cntrl_System.OBJECTS.Unit
         public enum UnitName
         {
             Amman,
-            Golan,
+            Golani,
             Givati,
             Air_force,
             Ground_force,
