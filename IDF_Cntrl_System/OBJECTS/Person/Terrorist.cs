@@ -11,10 +11,10 @@ namespace IDF_Cntrl_System.OBJECTS.Person
 {
     internal class Terrorist : Soldier
     {
-        protected int DangerRank { get; }
-        protected Tuple<int> Location {  get; }
-        protected int SeniorRank {  get; }
-        protected bool Status { get; set; }
+        public int DangerRank { get; }
+        public Tuple<int> Location {  get; }
+        public int SeniorRank {  get; }
+        public bool Status { get; set; }
 
         public Terrorist(string name, int age, AUnit unit, string role, int iD, AWeapon weapon, int DangerRank, Tuple<int> Location, int SeniorRank, bool Status)
             : base(name, age, unit, role, iD, weapon)
