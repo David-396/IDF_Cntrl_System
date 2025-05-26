@@ -8,22 +8,22 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
     public class IntelMessege
     {
         protected Terrorist terrorist;
-        protected DateTime timesamp;
-        protected int Confindende;
+        protected DateTime timestamp;
+        protected int Confindende { get; }
 
-        public IntelMessege(Terrorist terrorist, int timesamp, int Confindende = 10)
+        public IntelMessege(Terrorist terrorist, DateTime? timesamp = null, int Confindende = 10)
         {
             this.terrorist = terrorist;
-            this.timesamp = timesamp;
+            this.timestamp = timestamp ?? DateTime.Now;
         }
 
-        public string GetMessege(Terrorist terrorist)
+        public string GetMessegeString(Terrorist terrorist)
         {
             return $@"
             === INTELLIGENCE ALERT ===
             
-            STATUS: HIGH PRIORITY
             TARGET: {terrorist.Name}
+            STATUS: {terrorist.Status}
             ORGANIZATION: Hamas
             LOCATION: {terrorist.Location}
             TIME: {DateTime.Now:dd/MM/yyyy HH:mm}
@@ -32,6 +32,12 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
 
             ";
                     }
+
+        public DateTime GetTime()
+        {
+            return DateTime.Now;
+        }
+        
         
     }
 }
