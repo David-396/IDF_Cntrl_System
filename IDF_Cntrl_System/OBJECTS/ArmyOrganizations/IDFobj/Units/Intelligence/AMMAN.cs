@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +13,8 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
 {
     internal class Amman : AUnit
     {
-        public Amman(enum_UnitName name, int id, string type, Soldier commander, int missionID, List<Soldier> soldiers, Dictionary<ACombatVehicle, List<AWeapon>> Weapons)
+        public Amman(enum_UnitName name, int id, string type, Soldier commander, int missionID,
+         List<Soldier> soldiers, Dictionary<ACombatVehicle, List<AWeapon>> Weapons)
             : base(name, id, type, commander, missionID, soldiers, Weapons){ }
 
         public override void AddSoldier(Soldier soldier)

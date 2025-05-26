@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +11,8 @@ namespace IDF_Cntrl_System.OBJECTS.Combat.IDF_combats.AIR
     internal class F16 : ACombatVehicle
     {
         public F16(CombatType CombatType, Dictionary<WeaponTypes, AmmoCapacity> SelfWeapons, 
-            List<EfficientVs> efficientVS, string activatedBy, int attacksRemain, int maxAttacks, int fuelRemain = 100)
-            : base(CombatType.AirCraft, SelfWeapons, efficientVS, activatedBy, attacksRemain, maxAttacks, fuelRemain) { }
+            List<EfficientVs> efficientVS, int attacksRemain, int maxAttacks, int fuelRemain = 100)
+            : base(CombatType.AirCraft, SelfWeapons, efficientVS, attacksRemain, maxAttacks, fuelRemain) { }
 
         public override void Refuel()
         {
