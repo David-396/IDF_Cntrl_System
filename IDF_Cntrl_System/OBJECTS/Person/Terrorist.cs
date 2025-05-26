@@ -27,7 +27,7 @@ namespace IDF_Cntrl_System.OBJECTS.Person
 
         public void UpdateStatus()
         {
-            this.Status = !this.Status;
+            this.Status = false;
         }
     }
 }
