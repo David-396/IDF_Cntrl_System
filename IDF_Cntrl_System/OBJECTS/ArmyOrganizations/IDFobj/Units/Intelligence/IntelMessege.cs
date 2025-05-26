@@ -5,7 +5,7 @@ using IDF_Cntrl_System.OBJECTS.Person;
 
 namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
 {
-    public class IntelMessege
+    internal class IntelMessege
     {
         protected Terrorist Terrorist;
         protected DateTime Timestamp;
@@ -13,8 +13,11 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
 
         public IntelMessege(Terrorist terrorist, DateTime? timestamp = null, int Confindende = 10)
         {
+
             this.Terrorist = terrorist;
             this.Timestamp = timestamp ?? DateTime.Now;
+
+           
         }
 
         public string GetMessegeString(Terrorist terrorist)
