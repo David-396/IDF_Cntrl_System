@@ -13,13 +13,14 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj
 {
     internal class IDF : ArmyOrganization
     {
-        protected List<Soldier> SoldiersLst {  get; }
+        public List<Soldier> SoldiersLst;
 
         public IDF(string Establishment, Soldier Commander, int HumanResource, List<AUnit> UnitsLST, List<Soldier> soldiersLst)
             : base(Establishment, Commander, HumanResource, UnitsLST)
         {
             SoldiersLst = soldiersLst;
         }
+
 
         public override void UpdateHumanResource()
         {

@@ -12,7 +12,7 @@ using IDF_Cntrl_System.OBJECTS.ArmyOrganizations.HAMMASobj;
 using IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence;
 
 
-namespace IDF_Cntrl_System.OBJECTS.Menu
+namespace IDF_Cntrl_System.Menu
 {
     public class Makefile
     {
