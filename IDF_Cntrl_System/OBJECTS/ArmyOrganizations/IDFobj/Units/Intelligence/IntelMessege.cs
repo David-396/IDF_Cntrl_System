@@ -7,14 +7,17 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
 {
     internal class IntelMessege
     {
-        protected Terrorist terrorist;
-        protected DateTime timestamp;
+        protected Terrorist Terrorist;
+        protected DateTime Timestamp;
         protected int Confindende { get; }
 
-        public IntelMessege(Terrorist terrorist, DateTime? timesamp = null, int Confindende = 10)
+        public IntelMessege(Terrorist terrorist, DateTime? timestamp = null, int Confindende = 10)
         {
-            this.terrorist = terrorist;
-            this.timestamp = timestamp ? DateTime.Now : null;
+
+            this.Terrorist = terrorist;
+            this.Timestamp = timestamp ?? DateTime.Now;
+
+           
         }
 
         public string GetMessegeString(Terrorist terrorist)

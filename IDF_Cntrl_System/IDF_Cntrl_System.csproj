@@ -49,19 +49,21 @@
     <Compile Include="OBJECTS\ArmyOrganizations\IDFobj\Units\Intelligence\AMMAN.cs" />
     <Compile Include="OBJECTS\ArmyOrganizations\IDFobj\Units\Intelligence\IntelMessege.cs" />
     <Compile Include="OBJECTS\Combat\ACombatVehicle.cs" />
-    <Compile Include="OBJECTS\Combat\CombatTypes.cs" />
     <Compile Include="OBJECTS\Combat\IDF_combats\AIR\F16.cs" />
     <Compile Include="OBJECTS\Combat\IDF_combats\AIR\Hermes460.cs" />
     <Compile Include="OBJECTS\Combat\IDF_combats\GROUND\M109.cs" />
+    <Compile Include="OBJECTS\Enums\AmmoCapacity.cs" />
+    <Compile Include="OBJECTS\Enums\CombatTypes.cs" />
+    <Compile Include="OBJECTS\Enums\EfficientVs.cs" />
+    <Compile Include="OBJECTS\Enums\enum_UnitName.cs" />
+    <Compile Include="OBJECTS\Enums\Location_Enum.cs" />
+    <Compile Include="OBJECTS\Enums\WeaponTypes.cs" />
+    <Compile Include="OBJECTS\Menu\Menu.cs" />
     <Compile Include="OBJECTS\Person\APerson.cs" />
     <Compile Include="OBJECTS\Person\Soldier.cs" />
     <Compile Include="OBJECTS\Person\Terrorist.cs" />
-    <Compile Include="OBJECTS\Unit\enum_UnitName.cs" />
     <Compile Include="OBJECTS\Unit\AUnit.cs" />
-    <Compile Include="OBJECTS\Weapons\AmmoCapacity.cs" />
     <Compile Include="OBJECTS\Weapons\AWeapon.cs" />
-    <Compile Include="OBJECTS\Weapons\EfficientVs.cs" />
-    <Compile Include="OBJECTS\Weapons\WeaponTypes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
