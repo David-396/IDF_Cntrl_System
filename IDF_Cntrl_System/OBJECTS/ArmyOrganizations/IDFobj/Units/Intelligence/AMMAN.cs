@@ -7,6 +7,7 @@ using IDF_Cntrl_System.OBJECTS.Unit;
 using IDF_Cntrl_System.OBJECTS.Person;
 using IDF_Cntrl_System.OBJECTS.Weapons;
 using IDF_Cntrl_System.OBJECTS.Combat;
+using IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj;
 
 
 namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
@@ -34,7 +35,8 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
             if (this.Soldiers.Contains(soldier))
             {
                 this.Soldiers.Remove(soldier);
-
+                IDF.SoldiersLst.Add(soldier);
+                IDF.UpdateHumanResource();
             }
             else
             {
