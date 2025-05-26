@@ -20,7 +20,7 @@ namespace IDF_Cntrl_System.OBJECTS.Unit
         protected List<Soldier> Soldiers { get; }
         protected Dictionary<ACombatVehicle, List<AWeapon>> Weapons { get; }
         
-        protected bool Available { get; }
+        protected bool Available { get; set; }
 
         public AUnit(enum_UnitName name, int id, string type, Soldier commander, int missionID, List<Soldier> soldiers, Dictionary<ACombatVehicle, List<AWeapon>> Weapons, bool Available = true)
         {
