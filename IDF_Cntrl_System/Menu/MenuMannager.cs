@@ -48,7 +48,7 @@ namespace IDF_Cntrl_System.Menu
             List<AUnit> availableUnit = availableUnits();
             foreach (AUnit unit in availableUnit)
             {
-                Print(unit);
+                AUnit.Print(unit);
             }
         }
 
