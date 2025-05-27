@@ -10,8 +10,9 @@ namespace IDF_Cntrl_System.OBJECTS.Weapons
     {
         Missle,
         Shell,
-        Gun,
-        Knife,
-        FireArm
+        Gun = 2,
+        Knife =1,
+        M16 =3,
+        AK47 =3 
     }
 }
