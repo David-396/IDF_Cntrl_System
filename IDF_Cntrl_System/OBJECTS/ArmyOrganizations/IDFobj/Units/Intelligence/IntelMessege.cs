@@ -1,5 +1,7 @@
 using System;
 using IDF_Cntrl_System.OBJECTS.Person;
+using IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence;
+
 
 
 
@@ -9,13 +11,15 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
     {
         protected Terrorist Terrorist;
         protected DateTime Timestamp;
-        protected int Confindende { get; }
+        public int Confindende { get; set; }
 
-        public IntelMessege(Terrorist terrorist, DateTime? timestamp = null, int Confindende = 10)
+        public IntelMessege(Terrorist terrorist, int Confindende, DateTime? timestamp = null)
         {
+            
 
             this.Terrorist = terrorist;
             this.Timestamp = timestamp ?? DateTime.Now;
+            this.Confindende = Confindende;
 
            
         }
@@ -31,7 +35,7 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
             LOCATION: {terrorist.Location}
             TIME: {DateTime.Now:dd/MM/yyyy HH:mm}
             THREAT LEVEL: {terrorist.DangerRank}
-            CONFINDENCE MESSEGE = {Confindende}
+            CONFINDENCE MESSEGE = {this.Confindende}
 
             ";
                     }
@@ -39,6 +43,12 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
         public DateTime GetTime()
         {
             return DateTime.Now;
+        }
+        
+        public int SetConfindende(int Confindende)
+        {
+            this.Confindende = Confindende;
+            return this.Confindende;
         }
         
         
