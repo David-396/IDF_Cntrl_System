@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBase\TempDB.cs" />
     <Compile Include="Menu\Menu.cs" />
     <Compile Include="Menu\MenuMannager.cs" />
     <Compile Include="OBJECTS\ArmyOrganizations\ArmyOrganization.cs" />

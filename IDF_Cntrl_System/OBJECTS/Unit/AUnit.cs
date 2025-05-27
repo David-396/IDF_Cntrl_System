@@ -20,7 +20,7 @@ namespace IDF_Cntrl_System.OBJECTS.Unit
         protected List<Soldier> Soldiers { get; }
         protected Dictionary<ACombatVehicle, List<AWeapon>> Weapons { get; }
         
-        protected bool Available { get; set; }
+        public bool Available { get; set; }
 
         public AUnit(enum_UnitName name, int id, string type, Soldier commander, int missionID, List<Soldier> soldiers, Dictionary<ACombatVehicle, List<AWeapon>> Weapons, bool Available = true)
         {
@@ -34,7 +34,23 @@ namespace IDF_Cntrl_System.OBJECTS.Unit
             this.Available = Available;
         }
 
-        public abstract void print();
+        public virtual void Print()
+        {
+            Console.WriteLine($"unit name: {this.Name} , type: {this.Type}");
+
+        }
+
+        public virtual void Attack()
+        {
+            Console.WriteLine($"{this.Name} attacking");
+            this.Available = false;
+        }
+
+        public virtual void BackToBase()
+        {
+            Console.WriteLine($"{this.Name} unit is back to base");
+            this.Available = true;
+        }
 
         public abstract void AddSoldier(Soldier soldier);
         public abstract void  RemoveSoldier(Soldier soldier);

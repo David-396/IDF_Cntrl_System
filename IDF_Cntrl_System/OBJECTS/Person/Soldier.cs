@@ -23,5 +23,11 @@ namespace IDF_Cntrl_System.OBJECTS.Person
             this.ID = iD;
             this.Weapon = weapon;
         }
+
+        public override void Print()
+        {
+            base.Print();
+            Console.Write($", unit : {this.Unit} , role: {this.Role} , id: {this.ID} , weapon: {this.Weapon} ");
+        }
     }
 }

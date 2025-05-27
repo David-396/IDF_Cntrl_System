@@ -17,13 +17,9 @@ namespace IDF_Cntrl_System.OBJECTS.Person
             this.Age = Age;
         }
 
-        //public string GetName()
-        //{
-        //    return this.Name;
-        //}
-        //public int GetAge()
-        //{
-        //    return this.Age;
-        //}
+        public virtual void Print()
+        {
+            Console.WriteLine($"name: {this.Name}, age: {this.Age}");
+        }
     }
 }
