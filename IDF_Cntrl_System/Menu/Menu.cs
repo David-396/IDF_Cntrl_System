@@ -17,7 +17,7 @@ namespace IDF_Cntrl_System.Menu
     static class DB
     {
         static List<Terrorist> RandomTerrorist { get; }
-        static Dictionary<Terrorist, List<IntelMessege>> TerroristMSG { get; }
-        static List<AUnit> UnitsLst { get; }
+        public static Dictionary<Terrorist, List<IntelMessege>> TerroristMSG { get; }
+        public static List<AUnit> UnitsLst { get; }
     }
 }

@@ -14,7 +14,7 @@ namespace IDF_Cntrl_System.OBJECTS.Person
         public int DangerRank { get; set; }
         public LocationEnum Location {  get; set; }
         public int SeniorRank {  get; set; }
-        public bool Status { get; set; }
+        public string Status { get; set; }
 
         public Terrorist(string name, int age, AUnit unit, string role, int iD, AWeapon weapon, int DangerRank, LocationEnum Location, int SeniorRank, bool Status)
             : base(name, age, unit, role, iD, weapon)
@@ -22,13 +22,19 @@ namespace IDF_Cntrl_System.OBJECTS.Person
             this.DangerRank = DangerRank;
             this.Location = Location;
             this.SeniorRank = SeniorRank;
-            this.Status = Status;
+            this.Status = Status ? "live" : "dead";
         }
 
         public void UpdateStatus()
         
         {
-            this.Status = false;
+            this.Status = "dead";
+        }
+
+        public override void Print()
+        {
+            base.Print();
+            Console.Write($", danger rank: {this.DangerRank} , location:{this.Location} , senior rank: {this.SeniorRank} , status: {this.Status} \n");
         }
     }
 }
