@@ -11,12 +11,12 @@ namespace IDF_Cntrl_System.Menu
 {
     static class MenuMannager
     {
-        static string option;
+        public static string option;
 
-        static Terrorist most_report_terrorist_opt1 = null;
+        public static Terrorist most_report_terrorist_opt1 = null;
 
 
-        static void PrintMenu()
+        public static void PrintMenu()
         {
             Console.WriteLine("ENTER AN OPTION:");
             Console.WriteLine("\t 1. ANALLIZE INTELLIGENCE - identify the terrorist with the most reports");
@@ -25,19 +25,19 @@ namespace IDF_Cntrl_System.Menu
             Console.WriteLine("\t 4. ATTACK - select an attack unit by the location of the terrorist");
         }
 
-        static void GetOption()
+        public static void GetOption()
         {
             option = Console.ReadLine();
         }
 
 
         //option 1 mannager
-        static void most_report_terrorist_Mannager_opt1()
+        public static void most_report_terrorist_Mannager_opt1()
         {
             most_report_terrorist_opt1 = most_reported_terrorist();
             most_report_terrorist_opt1.Print();
         }
-        static Terrorist most_reported_terrorist()
+        public static Terrorist most_reported_terrorist()
         {
             int temp_count = 0;
             Terrorist temp_terrorist = null;
@@ -56,7 +56,7 @@ namespace IDF_Cntrl_System.Menu
 
 
         // option 2 mannager
-        static void AvailableUnits_Mannager_opt2()
+        public static void AvailableUnits_Mannager_opt2()
         {
             List<AUnit> availableUnit = availableUnits();
             foreach (AUnit unit in availableUnit)
@@ -65,7 +65,7 @@ namespace IDF_Cntrl_System.Menu
             }
         }
 
-        static List<AUnit> availableUnits()
+        public static List<AUnit> availableUnits()
         {
             List<AUnit> availableUnit = new List<AUnit>();
             foreach(AUnit unit in TempDB.IDFUnits_opt24)
