@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using IDF_Cntrl_System.DataBase;
+using IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence;
 using IDF_Cntrl_System.OBJECTS.Person;
 using IDF_Cntrl_System.OBJECTS.Unit;
 
@@ -14,6 +16,8 @@ namespace IDF_Cntrl_System.Menu
         public static string option;
 
         public static Terrorist most_report_terrorist_opt1 = null;
+
+        private static Terrorist most_Dangours_terrorist_opt3 = null;
 
 
         public static void PrintMenu()
@@ -77,5 +81,44 @@ namespace IDF_Cntrl_System.Menu
             }
             return availableUnit;
         }
+
+        // option 3
+        static void Most_Dangours_Terrorist_opt3()
+        {
+            Terrorist most = Most_Dangours_Terrorist_();
+            most.Print();
+        }
+        static Terrorist Most_Dangours_Terrorist_()
+        {
+            Terrorist mostDangours = null;
+
+            double temp = 0;
+
+            foreach (var key in TempDB.TerroristMSG_op13)
+            {
+                var terrorist = key.Key;
+                var msg = key.Value;
+
+                double Percentge = 1.0 - (5 - msg[msg.Count - 1].Confindende) * 0.15;
+
+                double total = msg[msg.Count - 1].Confindende +
+                             terrorist.DangerRank * terrorist.Weapon.Sum(types => (int)types);
+
+                double calculate = total * Percentge;
+
+                if (calculate > temp)
+                {
+                    temp = calculate;
+                    mostDangours = terrorist;
+                }
+            }
+
+            return mostDangours;    
+        }
+        
+        
+        
+
+        
     }
 }
