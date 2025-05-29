@@ -9,13 +9,13 @@ namespace IDF_Cntrl_System.OBJECTS.Weapons
     internal abstract class AWeapon
     {
         protected WeaponTypes WeaponType {  get; }
-        protected EfficientVs EfficientVS {  get; }
+        protected StructureType EfficientVS {  get; }
         protected int CurrentAmmo { get; }
         protected int AmmoLeft { get; }
         protected AmmoCapacity MaxAmmo { get; }
         
 
-        public AWeapon(WeaponTypes weaponType, EfficientVs efficientVS, int CurrentAmmo, int ammoLeft, AmmoCapacity MaxAmmo)
+        public AWeapon(WeaponTypes weaponType, StructureType efficientVS, int CurrentAmmo, int ammoLeft, AmmoCapacity MaxAmmo)
         {
             this.WeaponType = weaponType;
             this.EfficientVS = efficientVS;
