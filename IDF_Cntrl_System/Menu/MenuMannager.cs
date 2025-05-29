@@ -32,12 +32,19 @@ namespace IDF_Cntrl_System.Menu
             {
                 FirstMenu();
                 SwitchCaseFirstMenu(FirstMenuOption);
-
             }
         }
 
 
+        // Exit option
+        static void ExitOpt()
+        {
+            Console.WriteLine("bye");
+            Exit = true;
+        }
 
+
+        // first menu
         public static void PrintMenu()
         {
             Console.WriteLine("ENTER AN OPTION:");
@@ -133,6 +140,22 @@ namespace IDF_Cntrl_System.Menu
         }
 
 
+
+        //first menu
+        static void FirstMenu()
+        {
+            bool getAgain = true;
+            do
+            {
+                PrintMenu();
+                FirstMenuOption = GetOption();
+                if (ValidateOption.Validate("1", "2", "3", "4", "5", FirstMenuOption))
+                {
+                    getAgain = false;
+                }
+            } while (getAgain);
+        }
+
         // switch case for the first menu
         public static void SwitchCaseFirstMenu(string option)
         {
@@ -151,25 +174,9 @@ namespace IDF_Cntrl_System.Menu
                     SelectAndKillMannager_opt4();
                     break;
                 case "5":
-                    Exit = true;
+                    ExitOpt();
                     break;
             }
-        }
-
-
-        //first menu
-        static void FirstMenu()
-        {
-            bool getAgain = true;
-            do
-            {
-                PrintMenu();
-                FirstMenuOption = GetOption();
-                if (ValidateOption.Validate("1", "2", "3", "4", "5", FirstMenuOption))
-                {
-                    getAgain = false;
-                }
-            } while (getAgain);
         }
 
 
@@ -180,16 +187,40 @@ namespace IDF_Cntrl_System.Menu
 
         }
 
+        // switch case for second menu
+        public static void SwitchCase_Menu2(string option)
+        {
+            switch (option)
+            {
+                case "1":
+                    most_report_terrorist_opt1.Print();
+                    break;
+                case "2":
+                    most_Dangours_terrorist_opt3.Print();
+                    break;
+                case "3":
+                    GetNewTerorist();
+                    break;
+                case "4":
+                    ExitOpt();
+                    break;
+            }
+        }
+
+        // second menu
         static void SelectTerroristMenu()
         {
             most_report_terrorist_opt1 = most_report_terrorist_opt1 != null ? most_report_terrorist_opt1 : most_reported_terrorist();
             most_Dangours_terrorist_opt3 = most_Dangours_terrorist_opt3 != null ? most_Dangours_terrorist_opt3 : Most_Dangours_Terrorist_();
             Console.WriteLine($"select the terrorist:\n" +
-                $"\t 1. most reported terrorist : {most_report_terrorist_opt1}\n" +
+                $"\t 1. most reported terrorist : {most_report_terrorist_opt1.Name}\n" +
                 $"\t 2. most dangerous terrorist : {most_Dangours_terrorist_opt3.Name}\n" +
-                $"\t 3. other");
+                $"\t 3. other\n\n" +
+                $"4.EXIT ");
         }
 
+
+        // option 3 - another terrorist
         static void GetNewTerorist()
         {
             bool get_again = true;

@@ -16,8 +16,8 @@ namespace IDF_Cntrl_System
     {
         static void Main(string[] args)
         {
-            Soldier sldr1 = new Soldier("david", 20, new amm, "turai", 908, new List<WeaponTypes> { WeaponTypes.Shell})
-            IDF idf = new IDF("1948", );
+            //Soldier sldr1 = new Soldier("david", 20, new amm, "turai", 908, new List<WeaponTypes> { WeaponTypes.Shell})
+            //IDF idf = new IDF("1948", );
             MenuMannager.Run();
         }
     }
