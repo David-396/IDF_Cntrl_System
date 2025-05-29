@@ -13,12 +13,11 @@ namespace IDF_Cntrl_System.OBJECTS.Person
     internal class Terrorist : Soldier
     {
         public int DangerRank { get; set; }
-        public LocationEnum Location {  get; set; }
-        public int SeniorRank {  get; set; }
-        
+        public LocationEnum.Location Location {  get; set; }
+        public int SeniorRank {  get; set; }\
         public string Status { get; set; }
 
-        public Terrorist(string name, int age, AUnit unit, string role, int iD, List<WeaponTypes> weapon, int DangerRank, LocationEnum Location, int SeniorRank, bool Status)
+        public Terrorist(string name, int age, AUnit unit, string role, int iD, List<WeaponTypes> weapon, int DangerRank, LocationEnum.Location Location, int SeniorRank, bool Status)
             : base(name, age, unit, role, iD, weapon)
         {
             this.DangerRank = DangerRank;
