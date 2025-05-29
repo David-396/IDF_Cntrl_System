@@ -12,14 +12,14 @@ namespace IDF_Cntrl_System.OBJECTS.Combat
     {
         public CombatType CombatType { get; }
         public Dictionary<WeaponTypes, AmmoCapacity> SelfWeapons { get; }
-        public List<EfficientVs> EfficientVS { get; }
+        public List<StructureType> EfficientVS { get; }
         public int FuelRemain { get; set; }
         public int  AttacksRemain { get; }
         public int  MaxAttacks { get; }
 
 
         protected ACombatVehicle(CombatType CombatType, Dictionary<WeaponTypes, AmmoCapacity> SelfWeapons,
-            List<EfficientVs> efficientVS, int attacksRemain, int maxAttacks, int fuelRemain = 100)
+            List<StructureType> efficientVS, int attacksRemain, int maxAttacks, int fuelRemain = 100)
         {
             this.CombatType = CombatType;
             this.SelfWeapons = SelfWeapons;

@@ -12,15 +12,17 @@ namespace IDF_Cntrl_System.OBJECTS.Unit
 {
     internal abstract class AUnit
     {
-        protected enum_UnitName Name { get; }
-        protected int ID { get; }
-        protected string Type { get; }
-        protected Soldier Commander { get; }
-        protected int MissionID { get; }
-        protected List<Soldier> Soldiers { get; }
-        protected Dictionary<ACombatVehicle, List<AWeapon>> Weapons { get; }
-        
+        public enum_UnitName Name { get; }
+        public int ID { get; }
+        public string Type { get; }
+        public Soldier Commander { get; }
+        public int MissionID { get; }
+        public List<Soldier> Soldiers { get; }
+        public Dictionary<ACombatVehicle, List<AWeapon>> Weapons { get; }
         public bool Available { get; set; }
+        public StructureType EfficientVS { get; }
+        public int Ammo {  get; }
+
 
         public AUnit(enum_UnitName name, int id, string type, Soldier commander, int missionID, List<Soldier> soldiers, Dictionary<ACombatVehicle, List<AWeapon>> Weapons, bool Available = true)
         {

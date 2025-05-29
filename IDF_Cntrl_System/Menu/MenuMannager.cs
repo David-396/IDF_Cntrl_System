@@ -9,7 +9,7 @@ using IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence;
 using IDF_Cntrl_System.OBJECTS.Person;
 using IDF_Cntrl_System.OBJECTS.Unit;
 using IDF_Cntrl_System.ValidateInput;
-using IDF_Cntrl_System.OBJECTS.Enums;
+using IDF_Cntrl_System.OBJECTS;
 
 namespace IDF_Cntrl_System.Menu
 {
@@ -24,6 +24,18 @@ namespace IDF_Cntrl_System.Menu
         public static Terrorist TerroristToKill_Location;
         public static AUnit UnitToAttack;
 
+        public static bool Exit = false;
+
+        public static void Run()
+        {
+            while (!Exit)
+            {
+                FirstMenu();
+                SwitchCaseFirstMenu(FirstMenuOption);
+
+            }
+        }
+
 
 
         public static void PrintMenu()
@@ -32,7 +44,8 @@ namespace IDF_Cntrl_System.Menu
             Console.WriteLine("\t 1. ANALLIZE INTELLIGENCE - identify the terrorist with the most reports");
             Console.WriteLine("\t 2. ATTACK AVAILABLITY - show all the available units for attack and their current ammo");
             Console.WriteLine("\t 3. TARGETS PRIORITIZATION - identify the terrorist by quality rating");
-            Console.WriteLine("\t 4. ATTACK - select an attack unit by the location of the terrorist");
+            Console.WriteLine("\t 4. ATTACK - select an attack unit by the location of the terrorist\n\n");
+            Console.WriteLine("5. EXIT.");
         }
 
         public static string GetOption()
@@ -119,6 +132,31 @@ namespace IDF_Cntrl_System.Menu
             return mostDangours;    
         }
 
+
+        // switch case for the first menu
+        public static void SwitchCaseFirstMenu(string option)
+        {
+            switch (option)
+            {
+                case "1":
+                    most_report_terrorist_Mannager_opt1();
+                    break;
+                case "2":
+                    AvailableUnits_Mannager_opt2();
+                    break;
+                case "3":
+                    Most_Dangours_Terrorist_Mannager_opt3();
+                    break;
+                case "4":
+                    SelectAndKillMannager_opt4();
+                    break;
+                case "5":
+                    Exit = true;
+                    break;
+            }
+        }
+
+
         //first menu
         static void FirstMenu()
         {
@@ -127,7 +165,7 @@ namespace IDF_Cntrl_System.Menu
             {
                 PrintMenu();
                 FirstMenuOption = GetOption();
-                if (ValidateOption.Validate("1", "2", "3", "4", FirstMenuOption))
+                if (ValidateOption.Validate("1", "2", "3", "4", "5", FirstMenuOption))
                 {
                     getAgain = false;
                 }
@@ -144,8 +182,10 @@ namespace IDF_Cntrl_System.Menu
 
         static void SelectTerroristMenu()
         {
+            most_report_terrorist_opt1 = most_report_terrorist_opt1 != null ? most_report_terrorist_opt1 : most_reported_terrorist();
+            most_Dangours_terrorist_opt3 = most_Dangours_terrorist_opt3 != null ? most_Dangours_terrorist_opt3 : Most_Dangours_Terrorist_();
             Console.WriteLine($"select the terrorist:\n" +
-                $"\t 1. most reported terrorist : {most_report_terrorist_opt1.Name}\n" +
+                $"\t 1. most reported terrorist : {most_report_terrorist_opt1}\n" +
                 $"\t 2. most dangerous terrorist : {most_Dangours_terrorist_opt3.Name}\n" +
                 $"\t 3. other");
         }
@@ -155,15 +195,17 @@ namespace IDF_Cntrl_System.Menu
             bool get_again = true;
             do
             {
-                Console.WriteLine("enter the name of the terrorist");
+                Console.WriteLine("enter the name of the terrorist: ");
                 string TerName = Console.ReadLine();
                 foreach(Terrorist terrorist in TempDB.TerroristMSG_op13.Keys)
                 {
                     if(terrorist.Name == TerName)
                     {
                         TerroristToKill = terrorist;
-                        Console.WriteLine($"terrorist {terrorist.Name} found");
+                        Console.WriteLine($"terrorist - {terrorist.Name} found");
                         get_again = false;
+                        terrorist.Print();
+                        Console.WriteLine("Search for an appropriate unit..");
                         return;
                     }
                 }
@@ -172,17 +214,32 @@ namespace IDF_Cntrl_System.Menu
         }
 
 
-        static void SelectAttackUnit(Terrorist terrorist)
+        static bool SelectAttackUnit()
         {
+            Terrorist terrorist = TerroristToKill;
             List<AUnit> availableUnitsLST = availableUnits();
-            if (terrorist.Location == LocationEnum.Location.OpenSpace)
+
+            foreach(AUnit unit in availableUnitsLST)
             {
-                foreach(AUnit unit in availableUnitsLST)
+                if(unit.EfficientVS == terrorist.Location && unit.Available && unit.Ammo > 0)
                 {
-                    if(unit.eff)
+                    UnitToAttack = unit;
+                    unit.Print();
+                    return true;
                 }
             }
+            Console.WriteLine("an appropriate unit not found. please try again later.");
+            return false;
         }
+
+        static void AcceptAttackPrint()
+        {
+            Console.WriteLine("approved?" +
+                "1.YES" +
+                "2. NO");
+        }
+        
+
 
 
     }

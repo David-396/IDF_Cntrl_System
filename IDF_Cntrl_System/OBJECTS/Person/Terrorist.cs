@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence;
-using IDF_Cntrl_System.OBJECTS.Enums;
+using IDF_Cntrl_System.OBJECTS;
 using IDF_Cntrl_System.OBJECTS.Unit;
 using IDF_Cntrl_System.OBJECTS.Weapons;
 
@@ -13,11 +13,11 @@ namespace IDF_Cntrl_System.OBJECTS.Person
     internal class Terrorist : Soldier
     {
         public int DangerRank { get; set; }
-        public LocationEnum.Location Location {  get; set; }
-        public int SeniorRank {  get; set; }\
+        public StructureType Location {  get; set; }
+        public int SeniorRank {  get; set; }
         public string Status { get; set; }
 
-        public Terrorist(string name, int age, AUnit unit, string role, int iD, List<WeaponTypes> weapon, int DangerRank, LocationEnum.Location Location, int SeniorRank, bool Status)
+        public Terrorist(string name, int age, AUnit unit, string role, int iD, List<WeaponTypes> weapon, int DangerRank, StructureType Location, int SeniorRank, bool Status)
             : base(name, age, unit, role, iD, weapon)
         {
             this.DangerRank = DangerRank;
@@ -36,6 +36,7 @@ namespace IDF_Cntrl_System.OBJECTS.Person
         {
             base.Print();
             Console.Write($", danger rank: {this.DangerRank} , location:{this.Location} , senior rank: {this.SeniorRank} , status: {this.Status} \n");
+            Console.WriteLine();
         }
 
         public override void AddWeapon(WeaponTypes weapon)

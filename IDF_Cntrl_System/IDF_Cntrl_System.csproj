@@ -87,9 +87,8 @@
     <Compile Include="OBJECTS\Combat\IDF_combats\GROUND\M109.cs" />
     <Compile Include="OBJECTS\Enums\AmmoCapacity.cs" />
     <Compile Include="OBJECTS\Enums\CombatTypes.cs" />
-    <Compile Include="OBJECTS\Enums\EfficientVs.cs" />
+    <Compile Include="OBJECTS\Enums\StructureType.cs" />
     <Compile Include="OBJECTS\Enums\enum_UnitName.cs" />
-    <Compile Include="OBJECTS\Enums\Location_Enum.cs" />
     <Compile Include="OBJECTS\Enums\WeaponTypes.cs" />
     <Compile Include="OBJECTS\Person\APerson.cs" />
     <Compile Include="OBJECTS\Person\Soldier.cs" />
