@@ -35,8 +35,8 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
             if (this.Soldiers.Contains(soldier))
             {
                 this.Soldiers.Remove(soldier);
-                IDF.SoldiersLst.Add(soldier);
-                IDF.UpdateHumanResource();
+                //IDF.SoldiersLst.Add(soldier);
+                //IDF.UpdateHumanResource();
             }
             else
             {

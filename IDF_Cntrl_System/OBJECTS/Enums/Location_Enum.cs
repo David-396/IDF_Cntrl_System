@@ -4,6 +4,9 @@ namespace IDF_Cntrl_System.OBJECTS.Enums
     {
         public enum Location
         {
+            Home,
+            OpenSpace,
+            Car,
             Rapha,
             Gaza_city,
             Chan_yunes,

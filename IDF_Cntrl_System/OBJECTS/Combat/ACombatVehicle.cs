@@ -10,12 +10,12 @@ namespace IDF_Cntrl_System.OBJECTS.Combat
 {
     internal abstract class ACombatVehicle
     {
-        protected CombatType CombatType { get; }
-        protected Dictionary<WeaponTypes, AmmoCapacity> SelfWeapons { get; }
-        protected List<EfficientVs> EfficientVS { get; }
-        protected int FuelRemain { get; set; }
-        protected int  AttacksRemain { get; }
-        protected int  MaxAttacks { get; }
+        public CombatType CombatType { get; }
+        public Dictionary<WeaponTypes, AmmoCapacity> SelfWeapons { get; }
+        public List<EfficientVs> EfficientVS { get; }
+        public int FuelRemain { get; set; }
+        public int  AttacksRemain { get; }
+        public int  MaxAttacks { get; }
 
 
         protected ACombatVehicle(CombatType CombatType, Dictionary<WeaponTypes, AmmoCapacity> SelfWeapons,
@@ -30,7 +30,7 @@ namespace IDF_Cntrl_System.OBJECTS.Combat
         }
         public abstract void Refuel();
         public abstract void UpdateFuelAfterAttack();
-        public abstract void Attack(Terrorist terrorist)
+        public virtual void Attack(Terrorist terrorist)
         {
             Console.WriteLine($"{this.CombatType} attacking {terrorist.Name}");
             terrorist.UpdateStatus();
