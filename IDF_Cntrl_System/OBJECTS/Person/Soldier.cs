@@ -11,15 +11,13 @@ namespace IDF_Cntrl_System.OBJECTS.Person
 {
     internal class Soldier : APerson
     {
-        protected AUnit Unit { get; }
         protected string Role { get; }
         protected int ID {  get; }
         
         public List<WeaponTypes> Weapon { get; } 
 
-        public Soldier(string name, int age, AUnit unit, string role, int iD, List<WeaponTypes> weapon) : base(name, age)
+        public Soldier(string name, int age, string role, int iD, List<WeaponTypes> weapon) : base(name, age)
         {
-            this.Unit = unit;
             this.Role = role;
             this.ID = iD;
             this.Weapon = weapon;
@@ -28,7 +26,7 @@ namespace IDF_Cntrl_System.OBJECTS.Person
         public override void Print()
         {
             base.Print();
-            Console.Write($", unit : {this.Unit} , role: {this.Role} , id: {this.ID} , weapon: {this.Weapon} ");
+            Console.Write($", role: {this.Role} , id: {this.ID} , weapon: {this.Weapon} ");
         }
 
         public virtual void AddWeapon(WeaponTypes weapon)
