@@ -17,8 +17,8 @@ namespace IDF_Cntrl_System.OBJECTS.Person
         public int SeniorRank {  get; set; }
         public string Status { get; set; }
 
-        public Terrorist(string name, int age, AUnit unit, string role, int iD, List<WeaponTypes> weapon, int DangerRank, StructureType Location, int SeniorRank, bool Status)
-            : base(name, age, unit, role, iD, weapon)
+        public Terrorist(string name, int age, string role, int iD, List<WeaponTypes> weapon, int DangerRank, StructureType Location, int SeniorRank, bool Status)
+            : base(name, age, role, iD, weapon)
         {
             this.DangerRank = DangerRank;
             this.Location = Location;

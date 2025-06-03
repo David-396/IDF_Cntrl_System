@@ -16,9 +16,11 @@ namespace IDF_Cntrl_System.Menu
     static class MenuMannager
     {
         public static string FirstMenuOption;
+        public static string SecondMenuOption;
+        public static string approvedOption;
 
-        public static Terrorist most_report_terrorist_opt1 = null;
-        private static Terrorist most_Dangours_terrorist_opt3 = null;
+        public static Terrorist most_report_terrorist_opt1;
+        private static Terrorist most_Dangours_terrorist_opt3;
 
         public static Terrorist TerroristToKill;
         public static Terrorist TerroristToKill_Location;
@@ -32,6 +34,7 @@ namespace IDF_Cntrl_System.Menu
             {
                 FirstMenu();
                 SwitchCaseFirstMenu(FirstMenuOption);
+                resetOptions();
             }
         }
 
@@ -144,16 +147,11 @@ namespace IDF_Cntrl_System.Menu
         //first menu
         static void FirstMenu()
         {
-            bool getAgain = true;
             do
             {
                 PrintMenu();
                 FirstMenuOption = GetOption();
-                if (ValidateOption.Validate("1", "2", "3", "4", "5", FirstMenuOption))
-                {
-                    getAgain = false;
-                }
-            } while (getAgain);
+            } while (!ValidateOption.Validate("1", "2", "3", "4", "5", FirstMenuOption));
         }
 
         // switch case for the first menu
@@ -184,7 +182,14 @@ namespace IDF_Cntrl_System.Menu
         // option 4
         static void SelectAndKillMannager_opt4()
         {
-
+            PrintTerroristMenu();
+            SecondMenuOption = GetOption();
+            SwitchCase_Menu2(SecondMenuOption);
+            if (SelectAttackUnit() && AcceptAttack())
+            {
+                UnitToAttack.Attack();
+            }
+            
         }
 
         // switch case for second menu
@@ -193,9 +198,11 @@ namespace IDF_Cntrl_System.Menu
             switch (option)
             {
                 case "1":
+                    TerroristToKill = most_report_terrorist_opt1;
                     most_report_terrorist_opt1.Print();
                     break;
                 case "2":
+                    TerroristToKill = most_Dangours_terrorist_opt3;
                     most_Dangours_terrorist_opt3.Print();
                     break;
                 case "3":
@@ -208,7 +215,7 @@ namespace IDF_Cntrl_System.Menu
         }
 
         // second menu
-        static void SelectTerroristMenu()
+        static void PrintTerroristMenu()
         {
             most_report_terrorist_opt1 = most_report_terrorist_opt1 != null ? most_report_terrorist_opt1 : most_reported_terrorist();
             most_Dangours_terrorist_opt3 = most_Dangours_terrorist_opt3 != null ? most_Dangours_terrorist_opt3 : Most_Dangours_Terrorist_();
@@ -226,8 +233,10 @@ namespace IDF_Cntrl_System.Menu
             bool get_again = true;
             do
             {
-                Console.WriteLine("enter the name of the terrorist: ");
+                Console.WriteLine("enter the name of the terrorist. press * to return ");
                 string TerName = Console.ReadLine();
+                if( TerName == "*") break;
+
                 foreach(Terrorist terrorist in TempDB.TerroristMSG_op13.Keys)
                 {
                     if(terrorist.Name == TerName)
@@ -236,7 +245,7 @@ namespace IDF_Cntrl_System.Menu
                         Console.WriteLine($"terrorist - {terrorist.Name} found");
                         get_again = false;
                         terrorist.Print();
-                        Console.WriteLine("Search for an appropriate unit..");
+                        Console.WriteLine("Searching for an appropriate unit..");
                         return;
                     }
                 }
@@ -244,7 +253,7 @@ namespace IDF_Cntrl_System.Menu
             } while( get_again );
         }
 
-
+        // found the appropriate unit
         static bool SelectAttackUnit()
         {
             Terrorist terrorist = TerroristToKill;
@@ -263,6 +272,8 @@ namespace IDF_Cntrl_System.Menu
             return false;
         }
 
+
+
         static void AcceptAttackPrint()
         {
             Console.WriteLine("approved?" +
@@ -270,8 +281,36 @@ namespace IDF_Cntrl_System.Menu
                 "2. NO");
         }
         
+        // check if the attack is approved
+        static bool AcceptAttack()
+        {
+            AcceptAttackPrint();
+            approvedOption = GetOption();
+            while(!ValidateOption.Validate("1", "2", approvedOption))
+            {
+                Console.WriteLine("enter only the option number! ");
+                approvedOption = GetOption();
+            }
+            if( approvedOption == "1")
+            {
+                return true;
+            }
+            return false;
+        }
 
+        // reset all the options for the next run
+        static void resetOptions()
+        {
+            FirstMenuOption = null;
+            SecondMenuOption = null;
+            approvedOption = null;
+            most_report_terrorist_opt1 = null;
+            most_Dangours_terrorist_opt3 = null;
 
+            TerroristToKill = null;
+            TerroristToKill_Location = null;
+            UnitToAttack = null;
+    }
 
     }
 }

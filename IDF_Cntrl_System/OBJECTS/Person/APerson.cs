@@ -19,7 +19,7 @@ namespace IDF_Cntrl_System.OBJECTS.Person
 
         public virtual void Print()
         {
-            Console.WriteLine($"name: {this.Name}, age: {this.Age}");
+            Console.Write($"name: {this.Name}, age: {this.Age}");
         }
     }
 }

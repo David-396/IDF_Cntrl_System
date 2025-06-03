@@ -37,5 +37,15 @@ namespace IDF_Cntrl_System.ValidateInput
             Console.WriteLine("wrong option. please enter the number of the option");
             return false;
         }
+
+        public static bool Validate(string opt1, string opt2, string input)
+        {
+            if (opt1 == input || opt2 == input)
+            {
+                return true;
+            }
+            Console.WriteLine("wrong option. please enter the number of the option");
+            return false;
+        }
     }
 }
