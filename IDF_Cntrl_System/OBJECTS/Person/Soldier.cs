@@ -13,8 +13,8 @@ namespace IDF_Cntrl_System.OBJECTS.Person
     {
         protected string Role { get; }
         protected int ID {  get; }
-        
         public List<WeaponTypes> Weapon { get; } 
+
 
         public Soldier(string name, int age, string role, int iD, List<WeaponTypes> weapon) : base(name, age)
         {
@@ -22,6 +22,7 @@ namespace IDF_Cntrl_System.OBJECTS.Person
             this.ID = iD;
             this.Weapon = weapon;
         }
+
 
         public override void Print()
         {

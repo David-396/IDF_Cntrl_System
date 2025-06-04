@@ -23,7 +23,6 @@ namespace IDF_Cntrl_System.Menu
         private static Terrorist most_Dangours_terrorist_opt3;
 
         public static Terrorist TerroristToKill;
-        public static Terrorist TerroristToKill_Location;
         public static AUnit UnitToAttack;
 
         public static bool Exit = false;
@@ -109,7 +108,7 @@ namespace IDF_Cntrl_System.Menu
             return availableUnits;
         }
 
-        // option 3
+        // option 3 manager
         static void Most_Dangours_Terrorist_Mannager_opt3()
         {
             Terrorist most = Most_Dangours_Terrorist_();
@@ -144,7 +143,7 @@ namespace IDF_Cntrl_System.Menu
 
 
 
-        //first menu
+        //first menu manager
         static void FirstMenu()
         {
             do
@@ -187,12 +186,21 @@ namespace IDF_Cntrl_System.Menu
             SwitchCase_Menu2(SecondMenuOption);
             if (SelectAttackUnit() && AcceptAttack())
             {
-                UnitToAttack.Attack();
+                Attack(UnitToAttack,TerroristToKill);
             }
             
         }
 
-        // switch case for second menu
+        // attacking function
+        static void Attack(AUnit unit, Terrorist terrorist)
+        {
+            unit.ChangeStatus();
+            terrorist.UpdateStatus();
+            Console.WriteLine($"{unit.Name} unit is attacking {terrorist.Name}");
+            Console.WriteLine($"{terrorist.Name} eliminated!");
+        }
+
+        // switch case for second menu (opt4 in the first menu)
         public static void SwitchCase_Menu2(string option)
         {
             switch (option)
@@ -272,14 +280,6 @@ namespace IDF_Cntrl_System.Menu
             return false;
         }
 
-
-
-        static void AcceptAttackPrint()
-        {
-            Console.WriteLine("approved?" +
-                "1.YES" +
-                "2. NO");
-        }
         
         // check if the attack is approved
         static bool AcceptAttack()
@@ -297,6 +297,12 @@ namespace IDF_Cntrl_System.Menu
             }
             return false;
         }
+        static void AcceptAttackPrint()
+        {
+            Console.WriteLine("approved?" +
+                "1.YES" +
+                "2. NO");
+        }
 
         // reset all the options for the next run
         static void resetOptions()
@@ -306,9 +312,7 @@ namespace IDF_Cntrl_System.Menu
             approvedOption = null;
             most_report_terrorist_opt1 = null;
             most_Dangours_terrorist_opt3 = null;
-
             TerroristToKill = null;
-            TerroristToKill_Location = null;
             UnitToAttack = null;
     }
 

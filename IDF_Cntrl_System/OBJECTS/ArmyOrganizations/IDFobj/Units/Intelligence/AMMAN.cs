@@ -14,11 +14,12 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
 {
     internal class Amman : AUnit
     {
-        public Amman(enum_UnitName name, int id, string type, Soldier commander, int missionID,
+        public Amman(enum_UnitName name, int id, string type, Soldier commander,
         List<Soldier> soldiers, Dictionary<ACombatVehicle, List<AWeapon>> Weapons, bool Available = true)
+            : base(name, id, type, commander, soldiers, Weapons){ }
 
-            : base(name, id, type, commander, missionID, soldiers, Weapons){ }
 
+        // add and remove a soldier
         public override void AddSoldier(Soldier soldier)
         {
             if (!this.Soldiers.Contains(soldier))
@@ -35,8 +36,6 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
             if (this.Soldiers.Contains(soldier))
             {
                 this.Soldiers.Remove(soldier);
-                //IDF.SoldiersLst.Add(soldier);
-                //IDF.UpdateHumanResource();
             }
             else
             {
@@ -44,6 +43,8 @@ namespace IDF_Cntrl_System.OBJECTS.ArmyOrganizations.IDFobj.Units.Intelligence
             }
         }
 
+
+        // add and remove a weapon
         public override void AddWeapon(Dictionary<ACombatVehicle, List<AWeapon>> weapon_dict)
         {
             foreach (ACombatVehicle key in weapon_dict.Keys)

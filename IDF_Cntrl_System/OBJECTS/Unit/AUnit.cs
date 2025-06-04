@@ -16,7 +16,6 @@ namespace IDF_Cntrl_System.OBJECTS.Unit
         public int ID { get; }
         public string Type { get; }
         public Soldier Commander { get; }
-        public int MissionID { get; }
         public List<Soldier> Soldiers { get; }
         public Dictionary<ACombatVehicle, List<AWeapon>> Weapons { get; }
         public bool Available { get; set; }
@@ -24,13 +23,12 @@ namespace IDF_Cntrl_System.OBJECTS.Unit
         public int Ammo {  get; }
 
 
-        public AUnit(enum_UnitName name, int id, string type, Soldier commander, int missionID, List<Soldier> soldiers, Dictionary<ACombatVehicle, List<AWeapon>> Weapons, bool Available = true)
+        public AUnit(enum_UnitName name, int id, string type, Soldier commander, List<Soldier> soldiers, Dictionary<ACombatVehicle, List<AWeapon>> Weapons, bool Available = true)
         {
             this.Name = name;
             this.ID = id;
             this.Type = type;
             this.Commander = commander;
-            this.MissionID = missionID;
             this.Soldiers = soldiers;
             this.Weapons = Weapons;
             this.Available = Available;
@@ -42,10 +40,11 @@ namespace IDF_Cntrl_System.OBJECTS.Unit
 
         }
 
-        public virtual void Attack()
+
+        public virtual void ChangeStatus()
         {
-            Console.WriteLine($"{this.Name} attacking");
-            this.Available = false;
+            this.Available = !this.Available;
+
         }
 
         public virtual void BackToBase()
@@ -53,6 +52,8 @@ namespace IDF_Cntrl_System.OBJECTS.Unit
             Console.WriteLine($"{this.Name} unit is back to base");
             this.Available = true;
         }
+
+
 
         public abstract void AddSoldier(Soldier soldier);
         public abstract void  RemoveSoldier(Soldier soldier);

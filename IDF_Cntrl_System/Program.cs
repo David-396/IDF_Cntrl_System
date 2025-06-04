@@ -20,6 +20,7 @@ namespace IDF_Cntrl_System
             //Soldier sldr1 = new Soldier("david", 20, new amm, "turai", 908, new List<WeaponTypes> { WeaponTypes.Shell})
             Terrorist trrst = new Terrorist("s", 22, "ww", 21, new List<WeaponTypes> { WeaponTypes.Shell }, 21, StructureType.Car, 32, true);
             TempDB.TerroristMSG_op13.Add(trrst, new List<IntelMessege> { new IntelMessege(trrst,5)});
+
             MenuMannager.Run();
         }
     }
