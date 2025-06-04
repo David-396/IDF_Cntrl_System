@@ -11,7 +11,7 @@ namespace IDF_Cntrl_System.OBJECTS.Weapons
         protected WeaponTypes WeaponType {  get; }
         protected StructureType EfficientVS {  get; }
         protected int CurrentAmmo { get; }
-        protected int AmmoLeft { get; }
+        protected int AmmoLeft { get; set; }
         protected AmmoCapacity MaxAmmo { get; }
         
 
@@ -24,8 +24,15 @@ namespace IDF_Cntrl_System.OBJECTS.Weapons
             this.MaxAmmo = MaxAmmo;
         }
 
-        public abstract void UpdateAmmo(int ammoUsed);
-        public abstract void Reammo();
+        public virtual void Attack(int ammoUsed)
+        {
+            if (this.AmmoLeft == 0) ReAmmo();
+            this.AmmoLeft -= ammoUsed;
+        }
+        public virtual void ReAmmo()
+        {
+            this.AmmoLeft = (int)this.MaxAmmo;
+        }
 
     }
 }
