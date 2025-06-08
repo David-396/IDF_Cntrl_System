@@ -183,12 +183,10 @@ namespace IDF_Cntrl_System.Menu
         {
             PrintTerroristMenu();
             SecondMenuOption = GetOption();
-            SwitchCase_Menu2(SecondMenuOption);
-            if (SelectAttackUnit() && AcceptAttack())
+            if (SwitchCase_Menu2(SecondMenuOption) && SelectAttackUnit() && AcceptAttack())
             {
                 Attack(UnitToAttack,TerroristToKill);
             }
-            
         }
 
         // attacking function
@@ -201,25 +199,26 @@ namespace IDF_Cntrl_System.Menu
         }
 
         // switch case for second menu (opt4 in the first menu)
-        public static void SwitchCase_Menu2(string option)
+        public static bool SwitchCase_Menu2(string option)
         {
             switch (option)
             {
                 case "1":
                     TerroristToKill = most_report_terrorist_opt1;
                     most_report_terrorist_opt1.Print();
-                    break;
+                    return true;
                 case "2":
                     TerroristToKill = most_Dangours_terrorist_opt3;
                     most_Dangours_terrorist_opt3.Print();
-                    break;
+                    return true;
                 case "3":
                     GetNewTerorist();
-                    break;
+                    return true;
                 case "4":
                     ExitOpt();
-                    break;
+                    return false;
             }
+            return false;
         }
 
         // second menu
